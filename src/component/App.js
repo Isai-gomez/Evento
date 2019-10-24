@@ -1,18 +1,28 @@
 import React, { Component } from "react";
 import Header from "./Header";
 class App extends Component {
+  constructor() {
+    super();
+    this.token = "DQMN3QQLB6WN2YG7ZTE6";
+    this.idioma = "es_ES";
+    this.state = {
+      categorias: []
+    };
+  }
   componentDidMount() {
     this.obtenerCategoria();
   }
 
   obtenerCategoria = async () => {
-    let url = `https://www.eventbriteapi.com/v3/categories/?token=DQMN3QQLB6WN2YG7ZTE6&locale=es_ES`;
+    let url = `https://www.eventbriteapi.com/v3/categories/?token=${this.token}&locale=${this.idioma}`;
     await fetch(url)
       .then(respuesta => {
         return respuesta.json();
       })
       .then(categoria => {
-        console.log(categoria.categories);
+        this.setState({
+          categorias: categoria.categories
+        });
       });
   };
   render() {
