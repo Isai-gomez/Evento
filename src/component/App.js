@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Header from "./Header";
+import Formulario from "./Formulario";
 class App extends Component {
   constructor() {
     super();
@@ -29,6 +30,9 @@ class App extends Component {
     return (
       <div className="App">
         <Header titulo={"Evento"} />
+        <div className="uk-container">
+          <Formulario categorias={this.state.categorias} />
+        </div>
       </div>
     );
   }
