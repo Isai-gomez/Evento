@@ -26,12 +26,19 @@ class App extends Component {
         });
       });
   };
+
+  hacerBusqueda = async busqueda => {
+    console.log(busqueda);
+  };
   render() {
     return (
       <div className="App">
         <Header titulo={"Evento"} />
         <div className="uk-container">
-          <Formulario categorias={this.state.categorias} />
+          <Formulario
+            categorias={this.state.categorias}
+            hacerBusqueda={this.hacerBusqueda}
+          />
         </div>
       </div>
     );
