@@ -4,9 +4,9 @@ class Eventos extends Component {
   state = {};
   render() {
     return (
-      <div className="uk-child-width-1-4@m" uk-grid="true">
+      <div className="uk-child-width-1-2@m" uk-grid="true">
         {Object.keys(this.props.eventos).map(key => (
-          <Evento info={this.props.eventos[key]} />
+          <Evento key={key} info={this.props.eventos[key]} />
         ))}
       </div>
     );
