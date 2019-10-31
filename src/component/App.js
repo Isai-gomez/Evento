@@ -6,8 +6,10 @@ class App extends Component {
     super();
     this.token = "DQMN3QQLB6WN2YG7ZTE6";
     this.idioma = "es_ES";
+    this.ordenar = "date";
     this.state = {
-      categorias: []
+      categorias: [],
+      events: []
     };
   }
   componentDidMount() {
@@ -29,7 +31,17 @@ class App extends Component {
 
   hacerBusqueda = async busqueda => {
     console.log(busqueda);
+    //let url = `https://www.eventbriteapi.com/v3/events/search/?q=${busqueda.nombre}&categories=${busqueda.categoria}&sort_by=${this.ordenar}&token=${this.token}`;
+    const url = `https://www.eventbriteapi.com/v3/events/search/?q=${busqueda.evento}&categories=${busqueda.categoria}&token=${this.token}`;
+    await fetch(url)
+      .then(respuesta => {
+        return respuesta.json();
+      })
+      .then(evento => {
+        this.setState({ events: evento.events });
+      });
   };
+
   render() {
     return (
       <div className="App">
