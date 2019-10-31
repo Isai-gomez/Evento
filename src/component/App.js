@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Header from "./Header";
+import Eventos from "./Eventos";
 import Formulario from "./Formulario";
 class App extends Component {
   constructor() {
@@ -51,6 +52,7 @@ class App extends Component {
             categorias={this.state.categorias}
             hacerBusqueda={this.hacerBusqueda}
           />
+          <Eventos eventos={this.state.events}></Eventos>
         </div>
       </div>
     );
